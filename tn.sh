@@ -18,6 +18,16 @@ file="${topic}notes.txt"
 read -p "Your note:" note
 # 'read' command reads in input from input stream
 
+# Conditional expression:
+# Tests on files and directories
+# Tests on strings
+# Arithmetic tests
+# e.g. [[ $string ]] - True if not empty
+# [[ $string = "something" ]] - true if $string equals "something"
+# [[ $string="something" ]] - pitfall; always true! reads as one large concatenated string
+# [[ -e $filename ]] - queries file $filename exists
+# [[ -d $dirname ]] - queries dirname is a directory
+# Whitespace is critical
 if [[ $note ]]; then
   echo "$(date): $note" >> "$file"
   # Braces around 'topic' means to use that variable concatenated with 'notes.txt'
