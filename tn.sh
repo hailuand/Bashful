@@ -18,8 +18,19 @@ file="${topic}notes.txt"
 read -p "Your note:" note
 # 'read' command reads in input from input stream
 
-echo "$(date): $note" >> "$file"
-# Braces around 'topic' means to use that variable concatenated with 'notes.txt'
-echo "Note '$note' saved to file: ${file}"
-# $1 is the first parameter passed into the script in the command line.
-# $* represents all parameters passed into the script.
+if [[ $note ]]; then
+  echo "$(date): $note" >> "$file"
+  # Braces around 'topic' means to use that variable concatenated with 'notes.txt'
+  echo "Note '$note' saved to file: ${file}"
+  # $1 is the first parameter passed into the script in the command line.
+  # $* represents all parameters passed into the script.
+else
+  echo "No input- note was not saved."
+fi
+
+# Conditionals
+# if testcode; then
+#   # foo_bar_baz
+# else
+#   # fail_foo_bar
+# fi # Closing statement for conditional
